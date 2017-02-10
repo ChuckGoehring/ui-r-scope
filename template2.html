@@ -1,7 +1,9 @@
 <h2>template2</h2>
-<button type="button" 
-	class="btn btn-sm btn-success" 
+<button type="button"
+	class="btn btn-sm btn-success"
 	data-toggle="tooltip" data-placement="top"
-	title="copy" ng-click="vm.sayHello('template2')">
-	Push me 
+	title="copy" ng-click="vm.sayHello(vm.data.name)">
+	Push me
 </button>
+<br>
+vm.data: {{vm.data|json}}

@@ -1,56 +1,68 @@
-
-		
-	//, 'oitozero.ngSweetAlert', SweetAlert
-	angular.module('uirscope', ['ui.router'])
-	.controller('myController', function($scope) {
-		var vm = this;
-		
-		var data = { "name" : ""};
-		
-		vm.sayHello = sayHello;
-	
-        function sayHello(message)
-        {
-            console.log('name: ' + vm.data.name + ' ' + message);
-        }	
-		
-	}).config(function($stateProvider) {
-  
-		$stateProvider
-		  .state('home',{
-	        url: '/',		  
-			templateUrl: 'home2.html',
-			views: {
-			  "" : { 
-				templateUrl: 'template2.html',
-				controller: 'myController',
-				controllerAs: 'vm'	
-			  },				
-				'@home': { 
-				templateUrl: 'home.html' 
-				},			
-				'left@home': {
-				templateUrl: 'template1.html',
-				controller: 'myController',
-				controllerAs: 'vm'
-			  },
-			  'right@home': {
-				templateUrl: 'template1.html',
-				controller: 'myController',
-				controllerAs: 'vm'
-			  },
-			  "left@" : { 
-				templateUrl: 'template1.html',
-				controller: 'myController',
-				controllerAs: 'vm'		  
-			  }
-			}
-		  }  );
-		  
-	});
- 
-  
+//, 'oitozero.ngSweetAlert', SweetAlert
+angular.module('uirscope', ['ui.router'])
+   .controller('myController', function ($scope, view) {
+      console.log('myController', view);
+      var vm = this;
 
 
-	
-	
+      vm.data = {"name": ""};
+
+      vm.sayHello = function (name) {
+         console.log(view, 'hello:', name);
+      }
+
+   }).config(function ($stateProvider, $urlRouterProvider) {
+
+   $stateProvider
+      .state('home', {
+         url: '/',
+         templateUrl: 'home2.html',
+         views: {
+            "main@": {
+               templateUrl: 'template2.html',
+               controller: 'myController',
+               controllerAs: 'vm',
+               resolve: {
+                  view: function () {
+                     return 'main';
+                  }
+               }
+            },
+            "left@": {
+               templateUrl: 'template1.html',
+               controller: 'myController',
+               controllerAs: 'vm',
+               resolve: {
+                  view: function () {
+                     return 'left';
+                  }
+               }
+            },
+            'right@': {
+               templateUrl: 'template1.html',
+               controller: 'myController',
+               controllerAs: 'vm',
+               resolve: {
+                  view: function () {
+                     return 'right';
+                  }
+               }
+            },
+         }
+      });
+   $urlRouterProvider.otherwise('/');
+
+})
+   .run(function ($rootScope) {
+
+      $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState) {
+         console.log('state change', toState.name);
+      });
+
+   })
+
+
+
+
+
+
