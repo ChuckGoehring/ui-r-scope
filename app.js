@@ -1,17 +1,6 @@
 //, 'oitozero.ngSweetAlert', SweetAlert
 angular.module('uirscope', ['ui.router'])
-   .controller('myController', function ($scope, view) {
-      console.log('myController', view);
-      var vm = this;
-
-
-      vm.data = {"name": ""};
-
-      vm.sayHello = function (name) {
-         console.log(view, 'hello:', name);
-      }
-
-   }).config(function ($stateProvider, $urlRouterProvider) {
+   .config(function ($stateProvider, $urlRouterProvider) {
 
    $stateProvider
       .state('home', {
