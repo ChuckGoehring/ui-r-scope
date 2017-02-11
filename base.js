@@ -14,18 +14,23 @@ angular.module('uirscope')
 
       function init() {
 
-         base.data = {"name": ""};
+         base.data = {"name": "dank"};
 
+         // turns out this isn't needed, the base object watch. I guess there's already a watch on it?
+         // I suppose when you change a value in a child scope, it knows which scope it actually belongs
+         // to and does a digest on that scope.
+/*
          $rootScope.$watchCollection(base, function(newVal) {
             if (newVal) {
                // $rootScope.$digest(); // was crashing on this, so had to do safeApply()
                safeApply();
             }
          })
+*/
       }
 
       function sayHello(msg) {
-         console.log('hello ' + base.data.name + ' from ' + msg);
+         console.log('hello ' + base.data.name + ', ' + msg);
       }
 
       function safeApply(fn) {
