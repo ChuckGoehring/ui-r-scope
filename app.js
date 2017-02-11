@@ -5,7 +5,6 @@ angular.module('uirscope', ['ui.router'])
       $stateProvider
          .state('home', {
             url: '/',
-            templateUrl: 'home2.html',
             views: {
                "left@": {
                   templateUrl: 'left.html',
