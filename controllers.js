@@ -2,6 +2,7 @@
 
 angular.module('uirscope')
    .controller('ctrlHome', function ($scope) {
+/*
       var base = this;
       console.log('ctrlHome');
 
@@ -19,16 +20,21 @@ angular.module('uirscope')
       function sayHello(msg) {
          console.log('hello ' + base.data.name + ', ' + msg);
       }
+*/
 
    })
-   .controller('ctrlLeft', function ($scope) {
+   .controller('ctrlLeft', function ($scope, Base) {
       var vm = this;
+      $scope.base = Base;
+
       vm.data = {msg: 'left msg'};
       console.log('ctrlLeft');
 
    })
-   .controller('ctrlRight', function ($scope) {
+   .controller('ctrlRight', function ($scope, Base) {
       var vm = this;
+      $scope.base = Base;
+
       vm.data = {msg: 'right msg'};
       console.log('ctrlRight');
 

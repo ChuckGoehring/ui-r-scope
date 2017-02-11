@@ -1,11 +1,11 @@
 
 
 angular.module('uirscope')
-   .factory('Base', function($rootScope) {
+   .factory('Base', function() {
 
       console.log('base init');
 
-      var base = $rootScope.base = {
+      var base = {
          sayHello: sayHello
       };
       init();
@@ -33,6 +33,7 @@ angular.module('uirscope')
          console.log('hello ' + base.data.name + ', ' + msg);
       }
 
+/*
       function safeApply(fn) {
          var phase = $rootScope.$$phase;
          if (phase === '$apply' || phase === '$digest') {
@@ -40,9 +41,10 @@ angular.module('uirscope')
                fn();
             }
          } else {
-            /*jshint validthis:true */
+            /!*jshint validthis:true *!/
             this.$apply(fn);
          }
       }
+*/
 
    })
