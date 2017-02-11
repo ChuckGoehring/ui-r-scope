@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html ng-app='uirscope'>
 <head>
-    <title>ui-r-scope</title>	
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
-	<script src="app.js"></script>
+   <title>ui-r-scope</title>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+   <script src="app.js"></script>
+   <script src="controllers.js"></script>
+   <script src="base.js"></script>
+   <style>
+      .border {
+         border: 1px solid;
+      }
+
+   </style>
 
 </head>
 <body>
 
-	<h4>Testing scope issue </h4>
-	<br /><a href ui-sref="home">home</a>
-	
-	
+body base: {{base.data}}<br>
+<div ng-controller="ctrlHome as base">
+   ctrlHome base: {{base.data}}<br>
 
-	
-		<div ui-view ></div>
-	
-		<table style='border-style: dashed;'>
-		<tr>
-			<td>
-				<div ui-view='left' ></div>
-			</td>
-			<td>
-				<div ui-view='right' ></div>
-			</td>	
-		</tr>
-		</table>
+   <table>
+      <tr>
+         <td class="border">
+            <div ui-view='left'>left</div>
+         </td>
+         <td class="border">
+            <div ui-view='right'>right</div>
+         </td>
+      </tr>
+   </table>
 
-	
+</div>
+
+
 
 </body>
 </html>
