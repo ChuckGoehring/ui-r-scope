@@ -10,12 +10,13 @@
    <script src="controllers.js"></script>
    <script src="base.js"></script>
    <style>
-      .border {
+      .section {
          border: 1px solid;
+         width: 30%;
+         margin-right: 20px;
+         display:inline-block;
       }
-
    </style>
-
 </head>
 <body>
 
@@ -23,16 +24,13 @@ body base: {{base.data}}<br>
 <div ng-controller="ctrlHome as base">
    ctrlHome base: {{base.data}}<br>
 
-   <table>
-      <tr>
-         <td class="border">
-            <div ui-view='left'>left</div>
-         </td>
-         <td class="border">
-            <div ui-view='right'>right</div>
-         </td>
-      </tr>
-   </table>
+   <div class="section">
+      <div ui-view='left'>left</div>
+   </div>
+
+   <div class="section">
+      <div ui-view='right'>right</div>
+   </div>
 
 </div>
 
