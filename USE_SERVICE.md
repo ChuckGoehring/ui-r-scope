@@ -1,5 +1,5 @@
 
-### service only
+### use service
 
 * each view gets its own controller
 * shared code and data goes into Base service
