@@ -27,6 +27,10 @@ angular.module('uirscope', ['ui.router'])
          console.log('state change', toState.name);
       });
 
+      setTimeout(function() {
+         $rootScope.stuff = 'lala';
+      }, 1000)
+
    })
 
 
