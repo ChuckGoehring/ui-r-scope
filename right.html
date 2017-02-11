@@ -1,0 +1,15 @@
+<h2>right</h2>
+
+<form ng-submit="base.sayHello(vm.data.msg)">
+
+   base.data.name: <input ng-model="base.data.name"/>
+   vm.msg: <input ng-model="vm.data.msg">
+   <br>
+   <button type="submit">say hello</button>
+
+</form>
+
+
+<br>
+base.data: {{base.data|json}}<br>
+vm.data: {{vm.data}}<br>
